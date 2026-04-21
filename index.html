@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -42,7 +41,7 @@
             border-color: #10b981;
         }
 
-        /* Music Button Animation */
+        /* Music Animation */
         .music-playing {
             animation: pulse 1.5s infinite;
         }
@@ -51,6 +50,9 @@
             70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
+
+        /* Modal Structure */
+        #modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 150; align-items: center; justify-content: center; padding: 20px; }
     </style>
 </head>
 <body>
@@ -83,7 +85,7 @@
 
         <div class="text-center mt-8 z-10">
             <h1 data-aos="fade-up" class="text-4xl md:text-6xl font-extrabold tracking-tighter">
-                M. ROFI <span class="text-emerald-500 text-glow">ARDIANSYAH</span>
+                M. ROFI <span class="text-emerald-500 text-glow font-outline-2">ARDIANSYAH</span>
             </h1>
             <p data-aos="fade-up" data-aos-delay="200" class="text-emerald-400/80 mt-2 font-medium tracking-widest uppercase text-sm">
                 Civil Engineering Student
@@ -124,27 +126,41 @@
              PERSONAL BRANDING <span class="w-12 h-[2px] bg-emerald-500"></span>
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div data-aos="flip-left" class="photo-card glass rounded-3xl overflow-hidden p-3 border-emerald-900/30">
+            
+            <div data-aos="flip-left" class="photo-card glass rounded-3xl overflow-hidden p-3 border-emerald-900/30" onclick="showDetail('professional')">
                 <img src="1797.jpg" class="w-full h-80 object-cover rounded-2xl mb-4">
                 <h4 class="mt-3 font-bold text-lg px-2 text-emerald-500">Clean & Professional</h4>
+                <p class="text-[10px] text-gray-500 px-2"penjelasan</p>
             </div>
-            <div data-aos="flip-left" data-aos-delay="200" class="photo-card glass rounded-3xl overflow-hidden p-3 border-emerald-900/30">
+
+            <div data-aos="flip-left" data-aos-delay="200" class="photo-card glass rounded-3xl overflow-hidden p-3 border-emerald-900/30" onclick="showDetail('balance')">
                 <img src="1729.jpg" class="w-full h-80 object-cover rounded-2xl mb-4">
                 <h4 class="mt-3 font-bold text-lg px-2 text-emerald-500">Balance of Life</h4>
+                <p class="text-[10px] text-gray-500 px-2"penjelasan</p>
             </div>
-            <div data-aos="flip-left" data-aos-delay="400" class="photo-card glass rounded-3xl overflow-hidden p-3 border-emerald-900/30">
+
+            <div data-aos="flip-left" data-aos-delay="400" class="photo-card glass rounded-3xl overflow-hidden p-3 border-emerald-900/30" onclick="showDetail('spirit')">
                 <img src="1794.jpg" class="w-full h-80 object-cover rounded-2xl mb-4">
                 <h4 class="mt-3 font-bold text-lg px-2 text-emerald-500">Undaunted Spirit</h4>
+                <p class="text-[10px] text-gray-500 px-2">penjelasan</p>
             </div>
         </div>
     </section>
 
+    <div id="modal" onclick="closeModal()">
+        <div class="max-w-md w-full glass p-8 rounded-[2.5rem] border-emerald-500 shadow-2xl" onclick="event.stopPropagation()">
+            <h3 id="modal-title" class="text-2xl font-bold text-emerald-500 mb-4 tracking-tight"></h3>
+            <p id="modal-text" class="text-gray-300 leading-relaxed text-sm"></p>
+            <button class="mt-8 text-xs font-bold text-emerald-500 tracking-widest uppercase border border-emerald-500/30 px-6 py-2 rounded-full hover:bg-emerald-500 hover:text-black transition" onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+
     <section class="py-24 text-center px-6">
         <div data-aos="zoom-in" class="glass max-w-2xl mx-auto py-12 px-6 rounded-[40px] border-emerald-500/50">
             <h2 class="text-3xl font-bold mb-4 text-glow">Tertarik Berkolaborasi?</h2>
-            <p class="text-gray-400 mb-10 text-sm">Mari diskusikan proyek, desain, atau sekadar bertukar ide.</p>
+            <p class="text-gray-400 mb-10 text-sm">Mari diskusikan proyek, atau sekadar bertukar ide.</p>
             <a href="https://wa.me/6283856546891" class="neon-border bg-emerald-600 hover:bg-emerald-500 text-black font-bold py-4 px-10 rounded-full inline-flex items-center gap-3 transition-all">
-                chat aku ya..
+                Chat aku yaa..
             </a>
         </div>
     </section>
@@ -157,7 +173,33 @@
     <script>
         AOS.init({ duration: 1000, once: false });
 
-        // Fitur Musik
+        // MODAL LOGIC
+        const content = {
+            professional: {
+                title: "Clean & Professional",
+                text: "Mempresentasikan dedikasi saya dalam dunia teknik Sipil. Fokus pada presisi, kerapihan, dan profesionalisme dalam setiap tugas konstruksi dan pembangunan masa depan."
+            },
+            balance: {
+                title: "Balance of Life",
+                text: "Menjaga keseimbangan antara logika teknik dan inspirasi alam. Perjalanan ke alam terbuka membantu saya tetap kreatif dalam memecahkan masalah teknis yang kompleks."
+            },
+            spirit: {
+                title: "Undaunted Spirit",
+                text: "Ketangguhan mental dalam menghadapi tantangan lapangan. Mengambil jeda sejenak bukan berarti menyerah, melainkan mengumpulkan energi untuk bangkit lebih kuat."
+            }
+        };
+
+        function showDetail(key) {
+            document.getElementById('modal-title').innerText = content[key].title;
+            document.getElementById('modal-text').innerText = content[key].text;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // MUSIK LOGIC
         const musicBtn = document.getElementById('musicBtn');
         const audio = document.getElementById('myAudio');
         let isPlaying = false;
@@ -171,14 +213,6 @@
                 musicBtn.classList.add('music-playing');
             }
             isPlaying = !isPlaying;
-        });
-
-        // Click Animation
-        document.querySelectorAll('.photo-card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.style.transform = 'scale(0.95)';
-                setTimeout(() => card.style.transform = '', 200);
-            });
         });
     </script>
 </body>
