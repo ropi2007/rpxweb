@@ -3,173 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M. Rofi Ardiansyah | Personal Branding</title>
+    <title>M. Rofi Ardiansyah | Civil Engineering</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050505; color: #e2e8f0; }
+        .glass { background: rgba(10, 20, 10, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .text-glow { text-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
+        .photo-card { transition: all 0.4s ease; cursor: pointer; }
+        .photo-card:hover { transform: scale(1.02); border-color: #10b981; }
         
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #050505;
-            color: #e2e8f0;
-            overflow-x: hidden;
-        }
-
-        .glass {
-            background: rgba(10, 20, 10, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        .text-glow {
-            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-        }
-
-        .neon-border {
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .neon-border:active {
-            transform: scale(0.95);
-            box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
-        }
-
-        .photo-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
-
-        .photo-card:hover {
-            transform: translateY(-10px) rotate(1deg);
-            border-color: #10b981;
-        }
+        /* Modal Style */
+        #modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { max-width: 500px; width: 100%; }
     </style>
 </head>
 <body>
 
-    <section class="min-h-screen flex flex-col items-center justify-center relative px-6 overflow-hidden">
-        <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-emerald-900/20 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-emerald-900/20 rounded-full blur-[120px]"></div>
-
-        <div data-aos="zoom-in" class="relative group">
-            <div class="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-green-400 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
-            <img src="118224.jpg" alt="M. Rofi Ardiansyah" class="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-emerald-500 shadow-2xl">
+    <section class="min-h-screen flex flex-col items-center justify-center relative px-6 text-center">
+        <div data-aos="zoom-in">
+            <img src="118224.jpg" class="w-48 h-48 rounded-full object-cover border-4 border-emerald-500 shadow-[0_0_30px_rgba(16,185,129,0.3)] mb-8">
         </div>
-
-        <div class="text-center mt-8 z-10">
-            <h1 data-aos="fade-up" class="text-4xl md:text-6xl font-extrabold tracking-tighter">
-                M. ROFI <span class="text-emerald-500 text-glow font-outline-2">ARDIANSYAH</span>
-            </h1>
-            <p data-aos="fade-up" data-aos-delay="200" class="text-emerald-400/80 mt-2 font-medium tracking-widest uppercase text-sm">
-                Informatics Student & Tech Enthusiast
-            </p>
-        </div>
-
-        <div data-aos="fade-up" data-aos-delay="400" class="mt-10 max-w-xl text-center">
-            <p class="text-gray-400 leading-relaxed italic">
-                "Mahasiswa Teknik Sipil dengan latar belakang desain bangunan. Menggabungkan presisi teknis dan kreativitas dalam dunia digital."
-            </p>
-        </div>
-
-        <a data-aos="fade-up" data-aos-delay="600" href="#gallery" class="mt-12 animate-bounce text-emerald-500">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="Wait 19 9l-7 7-7-7" />
-            </svg>
-        </a>
+        <h1 data-aos="fade-up" class="text-4xl md:text-6xl font-extrabold tracking-tighter">
+            M. ROFI <span class="text-emerald-500 text-glow">ARDIANSYAH</span>
+        </h1>
+        <p class="text-emerald-400/70 mt-4 tracking-[0.2em] uppercase text-xs font-bold">Civil Engineering Student</p>
     </section>
 
-    <section class="py-20 px-6 max-w-4xl mx-auto">
-        <h2 data-aos="fade-right" class="text-2xl font-bold mb-10 flex items-center gap-4">
-            <span class="w-12 h-[2px] bg-emerald-500"></span> BIODATA
-        </h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div data-aos="fade-up" class="glass p-8 rounded-2xl">
-                <h3 class="text-emerald-500 font-bold mb-4">Pendidikan</h3>
-                <ul class="space-y-3 text-sm">
-                    <li><span class="text-gray-500">Universitas:</span> Teknik Informatika</li>
-                    <li><span class="text-gray-500">Alumni:</span> SMKN 1 Wonoasri</li>
-                    <li><span class="text-gray-500">Keahlian:</span> AutoCAD, Web Dev, Video Editing</li>
-                </ul>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="200" class="glass p-8 rounded-2xl">
-                <h3 class="text-emerald-500 font-bold mb-4">Visi & Misi</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">
-                    Fokus pada pengembangan diri di bidang Civil Engineering dan Informatika, membangun personal branding yang kuat melalui karya visual dan teknologi.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="py-20 px-6 max-w-6xl mx-auto">
-        <h2 data-aos="fade-right" class="text-2xl font-bold mb-12 flex items-center gap-4 text-right justify-end">
-             PERSONAL BRANDING <span class="w-12 h-[2px] bg-emerald-500"></span>
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div data-aos="flip-left" class="photo-card glass rounded-3xl overflow-hidden p-3 border-emerald-900/30">
-                <img src="1797.jpg" class="w-full h-80 object-cover rounded-2xl mb-4" alt="Professional">
-                <div class="px-2 pb-2">
-                    <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full uppercase tracking-tighter">Growth</span>
-                    <h4 class="mt-3 font-bold text-lg">Clean & Professional</h4>
-                    <p class="text-xs text-gray-500 mt-1">Kesiapan dalam dunia kerja dan organisasi dengan gaya formal-minimalis.</p>
-                </div>
-            </div>
-
-            <div data-aos="flip-left" data-aos-delay="200" class="photo-card glass rounded-3xl overflow-hidden p-3 border-emerald-900/30">
-                <img src="1729.jpg" class="w-full h-80 object-cover rounded-2xl mb-4" alt="Nature">
-                <div class="px-2 pb-2">
-                    <span class="text-[10px] bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full uppercase tracking-tighter">Adventure</span>
-                    <h4 class="mt-3 font-bold text-lg">Balance of Life</h4>
-                    <p class="text-xs text-gray-500 mt-1">Menikmati alam sebagai cara untuk menemukan inspirasi dan ketenangan.</p>
-                </div>
-            </div>
-
-            <div data-aos="flip-left" data-aos-delay="400" class="photo-card glass rounded-3xl overflow-hidden p-3 border-emerald-900/30">
-                <img src="1794.jpg" class="w-full h-80 object-cover rounded-2xl mb-4" alt="Resilience">
-                <div class="px-2 pb-2">
-                    <span class="text-[10px] bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full uppercase tracking-tighter">Resilience</span>
-                    <h4 class="mt-3 font-bold text-lg">Undaunted Spirit</h4>
-                    <p class="text-xs text-gray-500 mt-1">Kekuatan mental untuk bertahan dan istirahat sejenak di tengah tantangan.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 text-center px-6">
-        <div data-aos="zoom-in" class="glass max-w-2xl mx-auto py-12 px-6 rounded-[40px] border-emerald-500/50">
-            <h2 class="text-3xl font-bold mb-4">Tertarik Berkolaborasi?</h2>
-            <p class="text-gray-400 mb-10 text-sm">Mari diskusikan proyek IT, desain, atau sekadar bertukar ide.</p>
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <a href="https://wa.me/6283856546891" class="neon-border bg-emerald-600 hover:bg-emerald-500 text-black font-bold py-4 px-10 rounded-full inline-flex items-center gap-3 transition-all">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.165 1.237 8.413 3.484 2.248 2.248 3.484 5.236 3.484 8.413 0 6.556-5.332 11.888-11.888 11.888-2.004 0-3.972-.511-5.713-1.482l-6.289 1.694zm6.75-3.357l.356.211c1.291.766 2.775 1.171 4.296 1.171 4.843 0 8.783-3.94 8.783-8.783 0-2.346-.913-4.553-2.571-6.211-1.658-1.658-3.865-2.571-6.211-2.571-4.843 0-8.783 3.94-8.783 8.783 0 1.666.467 3.29 1.35 4.71l.233.375-1.03 3.75 3.844-1.036z"/></svg>
-                Chat Aku..
-            </a>
+            <div data-aos="fade-up" class="photo-card glass rounded-[2rem] p-4" onclick="showDetail('professional')">
+                <img src="1797.jpg" class="w-full h-72 object-cover rounded-2xl mb-4">
+                <h4 class="font-bold text-emerald-500">Clean & Professional</h4>
+                <p class="text-xs text-gray-500 mt-2">Klik untuk detail</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="200" class="photo-card glass rounded-[2rem] p-4" onclick="showDetail('balance')">
+                <img src="1729.jpg" class="w-full h-72 object-cover rounded-2xl mb-4">
+                <h4 class="font-bold text-emerald-500">Balance of Life</h4>
+                <p class="text-xs text-gray-500 mt-2">Klik untuk detail</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="400" class="photo-card glass rounded-[2rem] p-4" onclick="showDetail('spirit')">
+                <img src="1794.jpg" class="w-full h-72 object-cover rounded-2xl mb-4">
+                <h4 class="font-bold text-emerald-500">Undaunted Spirit</h4>
+                <p class="text-xs text-gray-500 mt-2">Klik untuk detail</p>
+            </div>
+
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-600 text-xs tracking-widest">
-        &copy; 2026 M. ROFI ARDIANSYAH. BUILT WITH PASSION.
-    </footer>
+    <div id="modal" onclick="closeModal()">
+        <div class="modal-content glass p-8 rounded-[2.5rem] border-emerald-500 shadow-2xl" onclick="event.stopPropagation()">
+            <h3 id="modal-title" class="text-2xl font-bold text-emerald-500 mb-4 tracking-tight"></h3>
+            <p id="modal-text" class="text-gray-300 leading-relaxed text-sm"></p>
+            <button class="mt-8 text-xs font-bold text-emerald-500 tracking-widest uppercase border border-emerald-500/30 px-6 py-2 rounded-full hover:bg-emerald-500 hover:text-black transition" onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+
+    <div class="fixed bottom-8 right-8 z-50">
+        <a href="https://wa.me/62xxxxxxxxxxx" class="bg-emerald-600 p-4 rounded-full shadow-lg block hover:scale-110 transition">
+            <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.165 1.237 8.413 3.484 2.248 2.248 3.484 5.236 3.484 8.413 0 6.556-5.332 11.888-11.888 11.888-2.004 0-3.972-.511-5.713-1.482l-6.289 1.694zm6.75-3.357l.356.211c1.291.766 2.775 1.171 4.296 1.171 4.843 0 8.783-3.94 8.783-8.783 0-2.346-.913-4.553-2.571-6.211-1.658-1.658-3.865-2.571-6.211-2.571-4.843 0-8.783 3.94-8.783 8.783 0 1.666.467 3.29 1.35 4.71l.233.375-1.03 3.75 3.844-1.036z"/></svg>
+        </a>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: false,
-            mirror: true
-        });
+        AOS.init();
 
-        // Click Animation Effect
-        document.querySelectorAll('.photo-card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.style.transform = 'scale(0.9) rotate(-2deg)';
-                setTimeout(() => {
-                    card.style.transform = '';
-                }, 200);
-            });
-        });
+        const content = {
+            professional: {
+                title: "Clean & Professional",
+                text: "Mempresentasikan dedikasi saya dalam dunia teknik. Dengan latar belakang pendidikan teknis, saya mengutamakan presisi, kerapihan, dan profesionalisme dalam setiap tugas. Foto ini mencerminkan kesiapan saya untuk berkontribusi di industri konstruksi dan pembangunan masa depan."
+            },
+            balance: {
+                title: "Balance of Life",
+                text: "Dunia teknik sipil penuh dengan perhitungan dan logika, namun eksplorasi alam adalah cara saya menjaga keseimbangan. Perjalanan ke pegunungan dan ruang terbuka melatih ketenangan serta memberikan perspektif baru yang membantu saya tetap kreatif dalam memecahkan masalah teknis."
+            },
+            spirit: {
+                title: "Undaunted Spirit",
+                text: "Ketangguhan adalah kunci. Foto ini menggambarkan sisi manusiawi di balik kerja keras; sebuah momen istirahat untuk mengumpulkan kekuatan kembali. Tidak peduli seberapa berat tantangan di lapangan, semangat untuk bertahan dan bangkit kembali adalah fondasi dari karakter saya."
+            }
+        };
+
+        function showDetail(key) {
+            document.getElementById('modal-title').innerText = content[key].title;
+            document.getElementById('modal-text').innerText = content[key].text;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
     </script>
 </body>
 </html>
