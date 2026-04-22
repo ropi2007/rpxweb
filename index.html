@@ -36,15 +36,11 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
         }
 
-        .text-glow {
-            text-shadow: 0 0 15px rgba(0, 255, 102, 0.8);
-        }
-
+        .text-glow { text-shadow: 0 0 15px rgba(0, 255, 102, 0.8); }
         .neon-border {
             box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
             transition: all 0.3s ease;
         }
-
         .neon-border:hover {
             box-shadow: 0 0 25px rgba(0, 255, 102, 0.9);
             border-color: #00ff66;
@@ -55,17 +51,13 @@
             cursor: pointer;
             background: #000;
         }
-
         .photo-card:hover {
             transform: translateY(-10px) rotate(1deg);
             border-color: #00ff66;
             box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
         }
 
-        .music-playing {
-            animation: pulse 1.5s infinite;
-        }
-
+        .music-playing { animation: pulse 1.5s infinite; }
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
             70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(0, 255, 102, 0); }
@@ -78,17 +70,27 @@
             50% { transform: translateX(5px); }
             75% { transform: translateX(-5px); }
         }
-        .shake-animation {
-            animation: shake 0.3s ease-in-out;
-        }
+        .shake-animation { animation: shake 0.3s ease-in-out; }
         
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: rgba(0,0,0,0.8); }
         ::-webkit-scrollbar-thumb { background: #00ff66; border-radius: 10px; }
     </style>
 </head>
-<body id="mainBody" style="overflow: hidden;"> 
+<body id="mainBody" style="overflow: hidden;">
+    <script>
+        if (localStorage.getItem('isAuthorized') === 'true') {
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+
     <div id="passwordOverlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md transition-opacity duration-700">
+        <script>
+            // Langsung sembunyikan jika sudah authorized
+            if (localStorage.getItem('isAuthorized') === 'true') {
+                document.getElementById('passwordOverlay').style.display = 'none';
+            }
+        </script>
         <div class="glass p-8 rounded-[2rem] w-[90%] max-w-md border-green-500/50 relative overflow-hidden flex flex-col items-center text-center shadow-[0_0_50px_rgba(0,255,102,0.1)]">
             <div class="absolute -top-20 -right-20 w-40 h-40 bg-green-500/20 rounded-full blur-[60px]"></div>
 
@@ -183,12 +185,6 @@
                 Civil Engineering Student
             </p>
         </div>
-
-        <div data-aos="fade-up" data-aos-delay="400" class="mt-8 max-w-xl text-center">
-            <p class="text-gray-400 leading-relaxed italic text-sm border-l-2 border-green-500 pl-4 text-left">
-                "Calon Insinyur Sipil, dengan latar belakang desain bangunan. Menggabungkan presisi teknis konstruksi dengan estetika visual digital dan akan menjadi jiwa yang kompetitif kreatif."
-            </p>
-        </div>
     </section>
 
     <section class="py-20 px-6 max-w-4xl mx-auto relative z-10">
@@ -196,54 +192,16 @@
             <span class="w-12 h-[2px] bg-green-500 neon-border"></span> BIODATA
         </h2>
         <div class="grid md:grid-cols-2 gap-8">
-            <div data-aos="fade-up" class="glass p-8 rounded-2xl group hover:border-green-500 transition">
-                <h3 class="text-green-400 font-bold mb-4 text-lg text-glow">Pendidikan</h3>
+            <div class="glass p-8 rounded-2xl group hover:border-green-500 transition">
+                <h3 class="text-green-400 font-bold mb-4 text-lg">Pendidikan</h3>
                 <ul class="space-y-3 text-sm text-gray-300">
-                    <li class="flex justify-between border-b border-green-900/30 pb-2"><span class="text-gray-500">Universitas:</span> <span class="text-right">Teknik Sipil - UNMER</span></li>
-                    <li class="flex justify-between border-b border-green-900/30 pb-2"><span class="text-gray-500">Alumni:</span> <span class="text-right">SMKN 1 Wonoasri (DPIB)</span></li>
-                    <li class="flex justify-between"><span class="text-gray-500">Fokus:</span> <span class="text-right">Konstruksi & Desain</span></li>
+                    <li class="flex justify-between border-b border-green-900/30 pb-2"><span class="text-gray-500">Univ:</span> <span>Teknik Sipil UNMER</span></li>
+                    <li class="flex justify-between border-b border-green-900/30 pb-2"><span class="text-gray-500">Alumni:</span> <span>SMKN 1 Wonoasri</span></li>
                 </ul>
             </div>
-            <div data-aos="fade-up" data-aos-delay="200" class="glass p-8 rounded-2xl group hover:border-green-500 transition">
-                <h3 class="text-green-400 font-bold mb-4 text-lg text-glow">Visi & Misi</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">
-                    Membangun fondasi masa depan melalui teknik sipil yang inovatif, sambil terus mengeksplorasi kreativitas melalui teknologi digital.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-6 max-w-4xl mx-auto relative z-10">
-        <h2 data-aos="fade-right" class="text-2xl font-bold mb-10 flex items-center gap-4 text-white justify-end">
-            KEAHLIAN TEKNIS <span class="w-12 h-[2px] bg-green-500 neon-border"></span>
-        </h2>
-        <div class="glass p-8 rounded-2xl grid gap-6" data-aos="fade-up">
-            <div>
-                <div class="flex justify-between text-sm mb-1">
-                    <span class="font-bold text-gray-200">AutoCAD & Civil Design</span>
-                    <span class="text-green-400 font-bold">90%</span>
-                </div>
-                <div class="w-full bg-gray-900 rounded-full h-2 border border-green-900/30">
-                    <div class="bg-green-500 h-2 rounded-full shadow-[0_0_10px_rgba(0,255,102,0.8)]" style="width: 90%"></div>
-                </div>
-            </div>
-            <div>
-                <div class="flex justify-between text-sm mb-1">
-                    <span class="font-bold text-gray-200">Video Editing & Content</span>
-                    <span class="text-green-400 font-bold">85%</span>
-                </div>
-                <div class="w-full bg-gray-900 rounded-full h-2 border border-green-900/30">
-                    <div class="bg-green-500 h-2 rounded-full shadow-[0_0_10px_rgba(0,255,102,0.8)]" style="width: 85%"></div>
-                </div>
-            </div>
-            <div>
-                <div class="flex justify-between text-sm mb-1">
-                    <span class="font-bold text-gray-200">Web Development (HTML/CSS)</span>
-                    <span class="text-green-400 font-bold">75%</span>
-                </div>
-                <div class="w-full bg-gray-900 rounded-full h-2 border border-green-900/30">
-                    <div class="bg-green-500 h-2 rounded-full shadow-[0_0_10px_rgba(0,255,102,0.8)]" style="width: 75%"></div>
-                </div>
+            <div class="glass p-8 rounded-2xl group hover:border-green-500 transition">
+                <h3 class="text-green-400 font-bold mb-4 text-lg">Visi</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">Membangun masa depan inovatif melalui teknik sipil dan teknologi.</p>
             </div>
         </div>
     </section>
@@ -253,56 +211,53 @@
              <span class="w-12 h-[2px] bg-green-500 neon-border"></span> PERSONAL BRANDING
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a href="detail-professional.html" data-aos="flip-left" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 relative group">
+            <a href="detail-professional.html" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 group">
                 <img src="1797.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
-                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Clean & Professional</h4>
-                <p class="text-xs text-gray-400 px-2 mt-1">Presisi dalam setiap proyek.</p>
+                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Professional</h4>
             </a>
-            <a href="detail-balance.html" data-aos="flip-left" data-aos-delay="200" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 relative group">
+            <a href="detail-balance.html" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 group">
                 <img src="1729.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
-                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Balance of Life</h4>
-                <p class="text-xs text-gray-400 px-2 mt-1">Harmoni logika dan alam.</p>
+                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Balance</h4>
             </a>
-            <a href="detail-spirit.html" data-aos="flip-left" data-aos-delay="400" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 relative group">
+            <a href="detail-spirit.html" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 group">
                 <img src="1794.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
-                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Undaunted Spirit</h4>
-                <p class="text-xs text-gray-400 px-2 mt-1">Ketangguhan mental di lapangan.</p>
+                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Spirit</h4>
             </a>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-green-800 text-[10px] tracking-widest border-t border-green-900/30 relative z-10 bg-black">
-        &copy; 2026 M. ROFI ARDIANSYAH. BUILT DENGAN PASSION & KOPI.
+    <footer class="py-10 text-center text-green-800 text-[10px] tracking-widest bg-black">
+        &copy; 2026 M. ROFI ARDIANSYAH.
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // CEK STATUS LOGIN SAAT HALAMAN DIBUKA
-        window.addEventListener('DOMContentLoaded', () => {
+        // FUNGSI UNTUK SEMBUNYIKAN OVERLAY SECARA PERMANEN JIKA LOGIN
+        function hideOverlay() {
             const isAuth = localStorage.getItem('isAuthorized');
             if (isAuth === 'true') {
                 const overlay = document.getElementById('passwordOverlay');
-                overlay.remove(); // Hapus overlay langsung jika sudah login
-                document.body.style.overflow = 'auto'; // Aktifkan scroll
+                if(overlay) overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
-        });
+        }
 
-        // LOGIKA AUTENTIKASI PASSWORD
+        // Jalankan saat halaman di-load dan saat kembali dari history (tombol back)
+        window.addEventListener('pageshow', hideOverlay);
+        window.addEventListener('DOMContentLoaded', hideOverlay);
+
         function checkPassword() {
             const input = document.getElementById('passInput');
             const errorText = document.getElementById('errorText');
             
             if (input.value === "rofibaik") {
-                // Simpan status di browser
                 localStorage.setItem('isAuthorized', 'true');
-                
                 document.getElementById('authSection').classList.add('hidden');
                 document.getElementById('successSection').classList.remove('hidden');
                 document.getElementById('successSection').classList.add('flex');
             } else {
                 errorText.classList.remove('opacity-0');
                 input.classList.add('shake-animation', 'border-red-500', 'text-red-500');
-                
                 setTimeout(() => {
                     input.classList.remove('shake-animation', 'border-red-500', 'text-red-500');
                 }, 300);
@@ -312,74 +267,35 @@
         function enterWebsite() {
             const overlay = document.getElementById('passwordOverlay');
             overlay.style.opacity = '0';
-            
             setTimeout(() => {
-                overlay.remove(); 
+                overlay.style.display = 'none';
                 document.body.style.overflow = 'auto'; 
             }, 700);
         }
 
-        document.getElementById('passInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') checkPassword();
-        });
+        document.getElementById('passInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') checkPassword(); });
 
-        // AOS
+        // AOS INIT
         AOS.init({ duration: 1000, once: false });
 
-        // MUSIK
+        // MUSIC LOGIC
         const musicBtn = document.getElementById('musicBtn');
         const audio = document.getElementById('myAudio');
         let isPlaying = false;
-
         musicBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                audio.pause();
-                musicBtn.classList.remove('music-playing');
-            } else {
-                audio.play();
-                musicBtn.classList.add('music-playing');
-            }
+            if (isPlaying) { audio.pause(); musicBtn.classList.remove('music-playing'); }
+            else { audio.play(); musicBtn.classList.add('music-playing'); }
             isPlaying = !isPlaying;
         });
 
         // AI WIDGET
         const aiToggleBtn = document.getElementById('aiToggleBtn');
         const aiChatBox = document.getElementById('aiChatBox');
-        const closeAiBtn = document.getElementById('closeAiBtn');
-        const aiInput = document.getElementById('aiInput');
-        const sendAiBtn = document.getElementById('sendAiBtn');
-        const chatMessages = document.getElementById('chatMessages');
-
-        function toggleChat() {
-            if (aiChatBox.classList.contains('opacity-0')) {
-                aiChatBox.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-                aiChatBox.classList.add('opacity-100', 'scale-100');
-            } else {
-                aiChatBox.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                aiChatBox.classList.remove('opacity-100', 'scale-100');
-            }
-        }
-
-        aiToggleBtn.addEventListener('click', toggleChat);
-        closeAiBtn.addEventListener('click', toggleChat);
-
-        function sendAiMessage() {
-            const text = aiInput.value.trim();
-            if (!text) return;
-            chatMessages.innerHTML += `<div class="bg-gray-900 border border-green-900/50 p-3 rounded-lg rounded-tr-none text-white self-end max-w-[85%] ml-auto text-right">${text}</div>`;
-            aiInput.value = '';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            setTimeout(() => {
-                const responses = ["Rofi itu jago pakai AutoCAD lho!", "Dia sedang menempuh pendidikan Teknik Sipil.", "Dia punya ketertarikan di dunia digital."];
-                const reply = responses[Math.floor(Math.random() * responses.length)];
-                chatMessages.innerHTML += `<div class="bg-green-900/30 border border-green-500/30 p-3 rounded-lg rounded-tl-none text-green-100 self-start max-w-[85%] mt-2">${reply}</div>`;
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 1000);
-        }
-
-        sendAiBtn.addEventListener('click', sendAiMessage);
-        aiInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendAiMessage(); });
+        aiToggleBtn.addEventListener('click', () => {
+            aiChatBox.classList.toggle('opacity-0');
+            aiChatBox.classList.toggle('scale-95');
+            aiChatBox.classList.toggle('pointer-events-none');
+        });
     </script>
 </body>
 </html>
