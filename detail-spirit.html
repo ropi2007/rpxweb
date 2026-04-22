@@ -3,124 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clean & Professional | M. Rofi Ardiansyah</title>
+    <title>Undaunted Spirit | M. Rofi Ardiansyah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap');
-        
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #000000;
-            background-image: 
-                linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 102, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
+            background-color: #000;
             color: #e2e8f0;
-            overflow-x: hidden;
-            position: relative;
         }
-
-        .gloss-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: radial-gradient(circle at 50% -20%, rgba(0, 255, 102, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
         .glass {
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 255, 102, 0.25);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 102, 0.2);
         }
-
-        .text-glow {
-            text-shadow: 0 0 15px rgba(0, 255, 102, 0.8);
-        }
-
-        .neon-border {
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .neon-border:hover {
-            box-shadow: 0 0 25px rgba(0, 255, 102, 0.9);
-            border-color: #00ff66;
-        }
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.8); }
-        ::-webkit-scrollbar-thumb { background: #00ff66; border-radius: 10px; }
+        .text-glow { text-shadow: 0 0 15px rgba(0, 255, 102, 0.6); }
     </style>
 </head>
-<body>
-    <div class="gloss-overlay"></div>
-
-    <div class="fixed top-8 left-8 z-50">
-        <a href="index.html" class="glass bg-black p-4 rounded-full shadow-lg block hover:scale-110 transition-all neon-border border-green-500 text-green-400 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<body class="p-6 md:p-12">
+    <div class="max-w-4xl mx-auto">
+        <a href="index.html" class="inline-flex items-center text-green-500 hover:text-green-400 mb-8 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
+            Kembali ke Beranda
         </a>
-    </div>
 
-    <section class="min-h-screen flex flex-col items-center justify-center relative px-6 z-10 py-20">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-green-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-green-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div class="max-w-4xl w-full">
-            <div data-aos="fade-down" class="mb-10 text-center">
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-white uppercase">
-                    Clean & <span class="text-green-500 text-glow">Professional</span>
-                </h1>
-                <p class="text-green-400 mt-4 font-medium tracking-widest uppercase text-sm">
-                    Personal Branding Detail
-                </p>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div data-aos="zoom-in">
+                <img src="1794.jpg" alt="Undaunted Spirit" class="w-full rounded-3xl border-2 border-green-500/30 shadow-[0_0_30px_rgba(0,255,102,0.1)]">
             </div>
-
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-                <div data-aos="fade-right" class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-600 rounded-3xl blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
-                    <img src="1797.jpg" alt="Clean & Professional" class="relative w-full h-[500px] object-cover rounded-3xl border border-green-500 shadow-2xl filter grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700">
+            
+            <div data-aos="fade-left">
+                <h1 class="text-4xl font-extrabold text-white mb-4">Undaunted <span class="text-green-500 text-glow">Spirit</span></h1>
+                <p class="text-green-400 font-bold mb-6 tracking-widest uppercase text-sm">Ketangguhan Tanpa Batas</p>
+                
+                <div class="glass p-6 rounded-2xl mb-6">
+                    <p class="text-gray-400 leading-relaxed italic">
+                        "Dunia konstruksi bukan untuk mereka yang mudah menyerah. Spirit ini adalah tentang daya tahan di lapangan, kemampuan beradaptasi dengan tim, dan tekad untuk menyelesaikan apa yang sudah dimulai."
+                    </p>
                 </div>
 
-                <div data-aos="fade-left" class="glass p-8 rounded-3xl border-green-500/50">
-                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-4 text-white">
-                        <span class="w-8 h-[2px] bg-green-500 neon-border"></span> Filosofi Konsep
-                    </h2>
-                    
-                    <div class="space-y-4 text-gray-300 text-sm leading-relaxed">
-                        <p>
-                            Foto ini merepresentasikan dedikasi saya dalam dunia teknik sipil. "Clean & Professional" bukan hanya sekadar penampilan, melainkan mindset yang selalu saya bawa dalam setiap tahap perancangan dan konstruksi.
-                        </p>
-                        <p>
-                            Sebagai seorang drafter dan calon insinyur, akurasi dan kerapian adalah kunci. Sama seperti presisi garis pada AutoCAD, segala tindakan harus terukur, rapi, dan terencana dengan matang.
-                        </p>
-                        <p class="border-l-2 border-green-500 pl-4 italic mt-6">
-                            "Membangun bukan hanya menyusun material, tapi juga menyusun kepercayaan melalui profesionalitas."
-                        </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <span class="text-green-500 mt-1">✔</span>
+                        <p class="text-sm text-gray-300"><span class="font-bold text-white">Experience:</span> Teruji saat PKL 6 bulan di CV AA Contractor.</p>
                     </div>
-
-                    <div class="mt-8 pt-6 border-t border-green-900/30">
-                        <h3 class="text-green-400 font-bold mb-3 text-glow text-sm">Korelasi dengan Web:</h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            UI/UX website ini dibuat dengan warna hitam solid dan aksen hijau neon yang tajam, mewakili tema "Clean" yang bebas dari elemen mengganggu, serta "Professional" melalui kode yang terstruktur rapi.
-                        </p>
+                    <div class="flex items-start gap-3">
+                        <span class="text-green-500 mt-1">✔</span>
+                        <p class="text-sm text-gray-300"><span class="font-bold text-white">Skill:</span> Adaptasi cepat terhadap lingkungan kerja yang keras dan dinamis.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <footer class="py-10 text-center text-green-800 text-[10px] tracking-widest border-t border-green-900/30 relative z-10 bg-black">
-        &copy; 2026 M. ROFI ARDIANSYAH. BUILT DENGAN PASSION & KOPI.
-    </footer>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
+    <script>AOS.init();</script>
 </body>
 </html>
+
