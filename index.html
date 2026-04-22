@@ -11,7 +11,6 @@
         
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            /* Hitam Pekat & Subtle Cyber Grid */
             background-color: #000000;
             background-image: 
                 linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px),
@@ -22,7 +21,6 @@
             position: relative;
         }
 
-        /* Glossy Overlay */
         .gloss-overlay {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -64,20 +62,18 @@
             box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
         }
 
-        /* Music Animation - Green pulse */
         .music-playing {
             animation: pulse 1.5s infinite;
         }
+
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
             70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(0, 255, 102, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
         }
 
-        /* Modal Structure */
         #modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 150; align-items: center; justify-content: center; padding: 20px; }
         
-        /* Custom Scrollbar for AI Chat */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: rgba(0,0,0,0.8); }
         ::-webkit-scrollbar-thumb { background: #00ff66; border-radius: 10px; }
@@ -86,6 +82,12 @@
 <body>
 
     <div class="gloss-overlay"></div>
+
+    <div id="gifContainer" class="fixed inset-0 flex items-center justify-center z-[200] pointer-events-none">
+        <img id="musicGif" src="https://media1.tenor.com/m/Rd0jrWH5JjgAAAAd/cat-scuba.gif" 
+             class="w-64 h-64 md:w-80 md:h-80 object-contain transition-all duration-700 transform scale-0 opacity-0" 
+             alt="Music Animation">
+    </div>
 
     <div class="fixed top-8 right-8 z-[100]">
         <button id="musicBtn" class="glass p-4 rounded-full border-green-500/50 text-green-400 hover:bg-green-500 hover:text-black transition-all">
@@ -151,7 +153,7 @@
 
         <div data-aos="fade-up" data-aos-delay="400" class="mt-8 max-w-xl text-center">
             <p class="text-gray-400 leading-relaxed italic text-sm border-l-2 border-green-500 pl-4 text-left">
-                "Calon Insinyur Sipil, dengan latar belakang desain bangunan. Menggabungkan presisi teknis konstruksi dengan estetika visual digital dan akan menjadi diwa yang kompetitif kreatif dan sangat menjunjung tinggi keadilan, karena dari semua yang ia alami dia menjadi orang yang pantang menyerah."
+                "Calon Insinyur Sipil, dengan latar belakang desain bangunan. Menggabungkan presisi teknis konstruksi dengan estetika visual digital dan akan menjadi jiwa yang kompetitif kreatif."
             </p>
         </div>
     </section>
@@ -172,7 +174,7 @@
             <div data-aos="fade-up" data-aos-delay="200" class="glass p-8 rounded-2xl group hover:border-green-500 transition">
                 <h3 class="text-green-400 font-bold mb-4 text-lg text-glow">Visi & Misi</h3>
                 <p class="text-sm text-gray-400 leading-relaxed">
-                    Membangun fondasi masa depan melalui teknik sipil yang inovatif, sambil terus mengeksplorasi kreativitas melalui teknologi digital, programming, dan visual rendering.
+                    Membangun fondasi masa depan melalui teknik sipil yang inovatif, sambil terus mengeksplorasi kreativitas melalui teknologi digital.
                 </p>
             </div>
         </div>
@@ -218,23 +220,17 @@
              <span class="w-12 h-[2px] bg-green-500 neon-border"></span> PERSONAL BRANDING
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
             <div data-aos="flip-left" class="photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 relative group" onclick="showDetail('professional')">
-                <div class="absolute inset-0 bg-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                 <img src="1797.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
                 <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Clean & Professional</h4>
                 <p class="text-xs text-gray-400 px-2 mt-1">Presisi dalam setiap proyek.</p>
             </div>
-
             <div data-aos="flip-left" data-aos-delay="200" class="photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 relative group" onclick="showDetail('balance')">
-                <div class="absolute inset-0 bg-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                 <img src="1729.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
                 <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Balance of Life</h4>
                 <p class="text-xs text-gray-400 px-2 mt-1">Harmoni logika dan alam.</p>
             </div>
-
             <div data-aos="flip-left" data-aos-delay="400" class="photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 relative group" onclick="showDetail('spirit')">
-                <div class="absolute inset-0 bg-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                 <img src="1794.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
                 <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Undaunted Spirit</h4>
                 <p class="text-xs text-gray-400 px-2 mt-1">Ketangguhan mental di lapangan.</p>
@@ -244,23 +240,11 @@
 
     <div id="modal" onclick="closeModal()">
         <div class="max-w-md w-full glass bg-black/95 p-8 rounded-[2rem] border-green-500 shadow-[0_0_40px_rgba(0,255,102,0.3)] relative" onclick="event.stopPropagation()">
-            <div class="absolute top-0 right-0 w-20 h-20 bg-green-500/10 blur-2xl rounded-full"></div>
             <h3 id="modal-title" class="text-2xl font-bold text-green-400 mb-4 tracking-tight text-glow"></h3>
             <p id="modal-text" class="text-gray-300 leading-relaxed text-sm"></p>
             <button class="mt-8 text-xs font-bold text-black tracking-widest uppercase bg-green-600 border border-green-500 px-6 py-2 rounded-full hover:bg-green-500 transition-all w-full neon-border" onclick="closeModal()">Tutup</button>
         </div>
     </div>
-
-    <section class="py-24 text-center px-6 relative z-10">
-        <div data-aos="zoom-in" class="glass max-w-2xl mx-auto py-12 px-6 rounded-[30px] border-green-500/50 relative overflow-hidden bg-black/80">
-            <div class="absolute -top-10 -right-10 w-40 h-40 bg-green-500/10 blur-3xl rounded-full"></div>
-            <h2 class="text-3xl font-bold mb-4 text-white text-glow">Tertarik Berkolaborasi?</h2>
-            <p class="text-gray-400 mb-10 text-sm">Mari diskusikan proyek sipil, desain, atau sekadar bertukar ide.</p>
-            <a href="https://wa.me/6283856546891" class="neon-border bg-green-600 hover:bg-green-500 text-black font-bold py-4 px-10 rounded-full inline-flex items-center gap-3 transition-all tracking-wider text-sm">
-                CHAT WHATSAPP
-            </a>
-        </div>
-    </section>
 
     <footer class="py-10 text-center text-green-800 text-[10px] tracking-widest border-t border-green-900/30 relative z-10 bg-black">
         &copy; 2026 M. ROFI ARDIANSYAH. BUILT DENGAN PASSION & KOPI.
@@ -270,20 +254,10 @@
     <script>
         AOS.init({ duration: 1000, once: false });
 
-        // MODAL LOGIC
         const content = {
-            professional: {
-                title: "Clean & Professional",
-                text: "Mempresentasikan dedikasi saya dalam dunia teknik Sipil. Fokus pada presisi, kerapihan, dan profesionalisme dalam setiap tugas konstruksi dan pembangunan masa depan."
-            },
-            balance: {
-                title: "Balance of Life",
-                text: "Menjaga keseimbangan antara logika teknik dan inspirasi alam. Perjalanan ke alam terbuka membantu saya tetap kreatif dalam memecahkan masalah teknis yang kompleks."
-            },
-            spirit: {
-                title: "Undaunted Spirit",
-                text: "Ketangguhan mental dalam menghadapi tantangan lapangan. Mengambil jeda sejenak bukan berarti menyerah, melainkan mengumpulkan energi untuk bangkit lebih kuat."
-            }
+            professional: { title: "Clean & Professional", text: "Mempresentasikan dedikasi saya dalam dunia teknik Sipil." },
+            balance: { title: "Balance of Life", text: "Menjaga keseimbangan antara logika teknik dan inspirasi alam." },
+            spirit: { title: "Undaunted Spirit", text: "Ketangguhan mental dalam menghadapi tantangan lapangan." }
         };
 
         function showDetail(key) {
@@ -296,23 +270,30 @@
             document.getElementById('modal').style.display = 'none';
         }
 
-        // MUSIK LOGIC
+        // MUSIK LOGIC + CENTER GIF ANIMATION
         const musicBtn = document.getElementById('musicBtn');
         const audio = document.getElementById('myAudio');
+        const musicGif = document.getElementById('musicGif');
         let isPlaying = false;
 
         musicBtn.addEventListener('click', () => {
             if (isPlaying) {
                 audio.pause();
                 musicBtn.classList.remove('music-playing');
+                // Sembunyikan GIF (Animasi keluar)
+                musicGif.classList.remove('scale-100', 'opacity-100');
+                musicGif.classList.add('scale-0', 'opacity-0');
             } else {
                 audio.play();
                 musicBtn.classList.add('music-playing');
+                // Munculkan GIF (Animasi masuk pop-up)
+                musicGif.classList.remove('scale-0', 'opacity-0');
+                musicGif.classList.add('scale-100', 'opacity-100');
             }
             isPlaying = !isPlaying;
         });
 
-        // AI WIDGET LOGIC (Simulasi)
+        // AI WIDGET LOGIC
         const aiToggleBtn = document.getElementById('aiToggleBtn');
         const aiChatBox = document.getElementById('aiChatBox');
         const closeAiBtn = document.getElementById('closeAiBtn');
@@ -337,47 +318,20 @@
             const text = aiInput.value.trim();
             if (!text) return;
 
-            // Chat User
-            chatMessages.innerHTML += `
-                <div class="bg-gray-900 border border-green-900/50 p-3 rounded-lg rounded-tr-none text-white self-end max-w-[85%] ml-auto text-right">
-                    ${text}
-                </div>
-            `;
+            chatMessages.innerHTML += `<div class="bg-gray-900 border border-green-900/50 p-3 rounded-lg rounded-tr-none text-white self-end max-w-[85%] ml-auto text-right">${text}</div>`;
             aiInput.value = '';
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // Simulasi "Typing..."
-            const typingId = 'typing-' + Date.now();
             setTimeout(() => {
-                chatMessages.innerHTML += `
-                    <div id="${typingId}" class="text-green-500/70 text-xs italic p-1">Gemini sedang memproses data...</div>
-                `;
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 300);
-
-            // Simulasi Balasan AI
-            setTimeout(() => {
-                document.getElementById(typingId).remove();
-                const responses = [
-                    "Rofi itu jago pakai AutoCAD lho, skill desain sipilnya lumayan solid!",
-                    "Dia sedang menempuh pendidikan Teknik Sipil, pastinya paham soal struktur dan RAB.",
-                    "Selain hal teknis, dia juga punya ketertarikan kuat di dunia digital seperti web dan video editing."
-                ];
+                const responses = ["Rofi itu jago pakai AutoCAD lho!", "Dia sedang menempuh pendidikan Teknik Sipil.", "Dia punya ketertarikan di dunia digital."];
                 const reply = responses[Math.floor(Math.random() * responses.length)];
-                
-                chatMessages.innerHTML += `
-                    <div class="bg-green-900/30 border border-green-500/30 p-3 rounded-lg rounded-tl-none text-green-100 self-start max-w-[85%] mt-2">
-                        ${reply}
-                    </div>
-                `;
+                chatMessages.innerHTML += `<div class="bg-green-900/30 border border-green-500/30 p-3 rounded-lg rounded-tl-none text-green-100 self-start max-w-[85%] mt-2">${reply}</div>`;
                 chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 1500);
+            }, 1000);
         }
 
         sendAiBtn.addEventListener('click', sendAiMessage);
-        aiInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') sendAiMessage();
-        });
+        aiInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendAiMessage(); });
     </script>
 </body>
 </html>
