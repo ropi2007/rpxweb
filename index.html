@@ -86,6 +86,7 @@
 
     <div id="passwordOverlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md transition-opacity duration-700">
         <script>
+            // Langsung sembunyikan jika sudah authorized
             if (localStorage.getItem('isAuthorized') === 'true') {
                 document.getElementById('passwordOverlay').style.display = 'none';
             }
@@ -148,7 +149,7 @@
         </button>
     </div>
 
-    <div id="aiChatBox" class="fixed bottom-24 left-8 w-80 sm:w-96 glass bg-black/90 rounded-2xl flex-col z-50 overflow-hidden transform transition-all duration-300 opacity-0 scale-95 pointer-events-none border-green-500/50 flex">
+    <div id="aiChatBox" class="fixed bottom-24 left-8 w-80 sm:w-96 glass bg-black/90 rounded-2xl flex-col z-50 overflow-hidden transform transition-all duration-300 opacity-0 scale-95 pointer-events-none border-green-500/50">
         <div class="bg-gradient-to-r from-green-900/50 to-black p-4 border-b border-green-500/30 flex justify-between items-center">
             <h3 class="text-green-400 font-bold flex items-center gap-2 text-sm tracking-wider text-glow">
                 <svg class="h-4 w-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg>
@@ -231,87 +232,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // --- GEMINI AI CONFIGURATION ---
-        const API_KEY = "AIzaSyDkogbUCP89fyAntOtiPnkF_oicYZNurhU";
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-
-        const chatMessages = document.getElementById('chatMessages');
-        const aiInput = document.getElementById('aiInput');
-        const sendAiBtn = document.getElementById('sendAiBtn');
-        const closeAiBtn = document.getElementById('closeAiBtn');
-
-        async function getGeminiResponse(userMessage) {
-            try {
-                const response = await fetch(API_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        contents: [{
-                            parts: [{
-                                text: `Kamu adalah asisten AI di website personal branding M. Rofi Ardiansyah. Rofi adalah mahasiswa Teknik Sipil UNMER Madiun dan lulusan SMKN 1 Wonoasri. Jawablah pertanyaan user dengan gaya bahasa yang santai, cerdas, dan informatif: ${userMessage}`
-                            }]
-                        }]
-                    })
-                });
-                const data = await response.json();
-                return data.candidates[0].content.parts[0].text;
-            } catch (error) {
-                console.error("Error:", error);
-                return "Maaf, sistem AI sedang sibuk. Coba lagi nanti ya!";
-            }
-        }
-
-        async function handleSendMessage() {
-            const message = aiInput.value.trim();
-            if (!message) return;
-
-            // User message
-            appendMessage(message, 'user');
-            aiInput.value = '';
-
-            // Loading state
-            const loadingId = addLoadingMessage();
-            
-            // Get response
-            const botResponse = await getGeminiResponse(message);
-            
-            // Remove loading and append bot response
-            removeLoadingMessage(loadingId);
-            appendMessage(botResponse, 'bot');
-        }
-
-        function appendMessage(text, sender) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = sender === 'user' 
-                ? "bg-green-600 text-black p-3 rounded-lg rounded-tr-none self-end max-w-[85%] font-medium"
-                : "bg-green-900/30 border border-green-500/30 p-3 rounded-lg rounded-tl-none text-green-100 self-start max-w-[85%]";
-            msgDiv.innerText = text;
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function addLoadingMessage() {
-            const id = 'loading-' + Date.now();
-            const loadingDiv = document.createElement('div');
-            loadingDiv.id = id;
-            loadingDiv.className = "text-green-500 text-xs italic animate-pulse p-2";
-            loadingDiv.innerText = "Gemini sedang berpikir...";
-            chatMessages.appendChild(loadingDiv);
-            return id;
-        }
-
-        function removeLoadingMessage(id) {
-            const el = document.getElementById(id);
-            if (el) el.remove();
-        }
-
-        sendAiBtn.addEventListener('click', handleSendMessage);
-        aiInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSendMessage(); });
-        closeAiBtn.addEventListener('click', () => {
-            aiChatBox.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-        });
-
-        // --- EXISTING LOGIC ---
+        // FUNGSI UNTUK SEMBUNYIKAN OVERLAY SECARA PERMANEN JIKA LOGIN
         function hideOverlay() {
             const isAuth = localStorage.getItem('isAuthorized');
             if (isAuth === 'true') {
@@ -321,6 +242,7 @@
             }
         }
 
+        // Jalankan saat halaman di-load dan saat kembali dari history (tombol back)
         window.addEventListener('pageshow', hideOverlay);
         window.addEventListener('DOMContentLoaded', hideOverlay);
 
@@ -353,8 +275,10 @@
 
         document.getElementById('passInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') checkPassword(); });
 
+        // AOS INIT
         AOS.init({ duration: 1000, once: false });
 
+        // MUSIC LOGIC
         const musicBtn = document.getElementById('musicBtn');
         const audio = document.getElementById('myAudio');
         let isPlaying = false;
@@ -364,6 +288,7 @@
             isPlaying = !isPlaying;
         });
 
+        // AI WIDGET
         const aiToggleBtn = document.getElementById('aiToggleBtn');
         const aiChatBox = document.getElementById('aiChatBox');
         aiToggleBtn.addEventListener('click', () => {
