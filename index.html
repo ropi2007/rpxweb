@@ -1,362 +1,302 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M. Rofi Ardiansyah | Personal Branding</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap');
-        
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #000000;
-            background-image: 
-                linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 102, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: #e2e8f0;
-            overflow-x: hidden;
-            position: relative;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Rofi Ardiansyah | Personal Branding</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #000000;
+            background-image: 
+                linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 102, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-        .gloss-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: radial-gradient(circle at 50% -20%, rgba(0, 255, 102, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
+        .gloss-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: radial-gradient(circle at 50% -20%, rgba(0, 255, 102, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
 
-        .glass {
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 255, 102, 0.25);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-        }
+        .glass {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 255, 102, 0.25);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+        }
 
-        .text-glow { text-shadow: 0 0 15px rgba(0, 255, 102, 0.8); }
-        .neon-border {
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
-            transition: all 0.3s ease;
-        }
-        .neon-border:hover {
-            box-shadow: 0 0 25px rgba(0, 255, 102, 0.9);
-            border-color: #00ff66;
-        }
+        .text-glow { text-shadow: 0 0 15px rgba(0, 255, 102, 0.8); }
+        .neon-border {
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+        .neon-border:hover {
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.9);
+            border-color: #00ff66;
+        }
 
-        .photo-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            background: #000;
-        }
-        .photo-card:hover {
-            transform: translateY(-10px) rotate(1deg);
-            border-color: #00ff66;
-            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
-        }
+        .photo-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            background: #000;
+        }
+        .photo-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            border-color: #00ff66;
+            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
+        }
 
-        .music-playing { animation: pulse 1.5s infinite; }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(0, 255, 102, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
-        }
+        .music-playing { animation: pulse 1.5s infinite; }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(0, 255, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
+        }
 
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-        }
-        .shake-animation { animation: shake 0.3s ease-in-out; }
-        
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.8); }
-        ::-webkit-scrollbar-thumb { background: #00ff66; border-radius: 10px; }
-    </style>
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+        .shake-animation { animation: shake 0.3s ease-in-out; }
+        
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.8); }
+        ::-webkit-scrollbar-thumb { background: #00ff66; border-radius: 10px; }
+    </style>
 </head>
 <body id="mainBody" style="overflow: hidden;">
-    <script>
-        if (localStorage.getItem('isAuthorized') === 'true') {
-            document.body.style.overflow = 'auto';
-        }
-    </script>
+    <script>
+        if (localStorage.getItem('isAuthorized') === 'true') {
+            document.body.style.overflow = 'auto';
+        }
+    </script>
 
-    <div id="passwordOverlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md transition-opacity duration-700">
-        <script>
-            if (localStorage.getItem('isAuthorized') === 'true') {
-                document.getElementById('passwordOverlay').style.display = 'none';
-            }
-        </script>
-        <div class="glass p-8 rounded-[2rem] w-[90%] max-w-md border-green-500/50 relative overflow-hidden flex flex-col items-center text-center shadow-[0_0_50px_rgba(0,255,102,0.1)]">
-            <div class="absolute -top-20 -right-20 w-40 h-40 bg-green-500/20 rounded-full blur-[60px]"></div>
+    <div id="passwordOverlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md transition-opacity duration-700">
+        <script>
+            // Langsung sembunyikan jika sudah authorized
+            if (localStorage.getItem('isAuthorized') === 'true') {
+                document.getElementById('passwordOverlay').style.display = 'none';
+            }
+        </script>
+        <div class="glass p-8 rounded-[2rem] w-[90%] max-w-md border-green-500/50 relative overflow-hidden flex flex-col items-center text-center shadow-[0_0_50px_rgba(0,255,102,0.1)]">
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-green-500/20 rounded-full blur-[60px]"></div>
 
-            <div id="authSection" class="w-full transition-all duration-500">
-                <h2 class="text-xl font-bold text-green-400 mb-6 text-glow">mau masuk?? tau passwordnya ngga?</h2>
-                <div class="relative">
-                    <input type="password" id="passInput" 
-                        class="w-full bg-black/50 border border-green-900 focus:border-green-500 rounded-xl px-4 py-3 text-center text-green-400 outline-none transition-all mb-2 placeholder-green-900/50" 
-                        placeholder="Ketik password...">
-                </div>
-                <p id="errorText" class="text-red-500 text-sm h-5 opacity-0 transition-opacity mb-4 font-bold">hayoooo lau siape</p>
-                
-                <button onclick="checkPassword()" 
-                    class="w-full bg-green-600 text-black font-extrabold py-3 rounded-xl hover:bg-green-500 transition-all neon-border uppercase tracking-widest text-sm">
-                    Verifikasi
-                </button>
-            </div>
+            <div id="authSection" class="w-full transition-all duration-500">
+                <h2 class="text-xl font-bold text-green-400 mb-6 text-glow">mau masuk?? tau passwordnya ngga?</h2>
+                <div class="relative">
+                    <input type="password" id="passInput" 
+                        class="w-full bg-black/50 border border-green-900 focus:border-green-500 rounded-xl px-4 py-3 text-center text-green-400 outline-none transition-all mb-2 placeholder-green-900/50" 
+                        placeholder="Ketik password...">
+                </div>
+                <p id="errorText" class="text-red-500 text-sm h-5 opacity-0 transition-opacity mb-4 font-bold">hayoooo lau siape</p>
+                
+                <button onclick="checkPassword()" 
+                    class="w-full bg-green-600 text-black font-extrabold py-3 rounded-xl hover:bg-green-500 transition-all neon-border uppercase tracking-widest text-sm">
+                    Verifikasi
+                </button>
+            </div>
 
-            <div id="successSection" class="w-full hidden flex-col items-center transition-all duration-500">
-                <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-3xl neon-border border-green-500 text-glow">
-                    🔓
-                </div>
-                <p class="text-green-400 font-bold text-xl mb-8 text-glow">"keknya kenal banget nih sama doi"</p>
-                <button onclick="enterWebsite()" 
-                    class="w-full bg-green-600 text-black font-extrabold py-3 rounded-xl hover:bg-green-500 transition-all neon-border uppercase tracking-widest text-sm">
-                    Silakan...
-                </button>
-            </div>
-        </div>
-    </div>
+            <div id="successSection" class="w-full hidden flex-col items-center transition-all duration-500">
+                <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-3xl neon-border border-green-500 text-glow">
+                    🔓
+                </div>
+                <p class="text-green-400 font-bold text-xl mb-8 text-glow">"keknya kenal banget nih sama doi"</p>
+                <button onclick="enterWebsite()" 
+                    class="w-full bg-green-600 text-black font-extrabold py-3 rounded-xl hover:bg-green-500 transition-all neon-border uppercase tracking-widest text-sm">
+                    Silakan...
+                </button>
+            </div>
+        </div>
+    </div>
 
-    <div class="gloss-overlay"></div>
+    <div class="gloss-overlay"></div>
 
-    <div class="fixed top-8 right-8 z-[100]">
-        <button id="musicBtn" class="glass p-4 rounded-full border-green-500/50 text-green-400 hover:bg-green-500 hover:text-black transition-all">
-            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-            </svg>
-        </button>
-        <audio id="myAudio" loop>
-            <source src="gaspol.mp3" type="audio/mpeg">
-        </audio>
-    </div>
+    <div class="fixed top-8 right-8 z-[100]">
+        <button id="musicBtn" class="glass p-4 rounded-full border-green-500/50 text-green-400 hover:bg-green-500 hover:text-black transition-all">
+            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            </svg>
+        </button>
+        <audio id="myAudio" loop>
+            <source src="gaspol.mp3" type="audio/mpeg">
+        </audio>
+    </div>
 
-    <div class="fixed bottom-8 right-8 z-50">
-        <a href="https://wa.me/6283856546891" class="bg-black border border-green-500 p-4 rounded-full shadow-lg block hover:scale-110 transition-all neon-border">
-            <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.165 1.237 8.413 3.484 2.248 2.248 3.484 5.236 3.484 8.413 0 6.556-5.332 11.888-11.888 11.888-2.004 0-3.972-.511-5.713-1.482l-6.289 1.694zm6.75-3.357l.356.211c1.291.766 2.775 1.171 4.296 1.171 4.843 0 8.783-3.94 8.783-8.783 0-2.346-.913-4.553-2.571-6.211-1.658-1.658-3.865-2.571-6.211-2.571-4.843 0-8.783 3.94-8.783 8.783 0 1.666.467 3.29 1.35 4.71l.233.375-1.03 3.75 3.844-1.036z"/></svg>
-        </a>
-    </div>
+    <div class="fixed bottom-8 right-8 z-50">
+        <a href="https://wa.me/6283856546891" class="bg-black border border-green-500 p-4 rounded-full shadow-lg block hover:scale-110 transition-all neon-border">
+            <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.165 1.237 8.413 3.484 2.248 2.248 3.484 5.236 3.484 8.413 0 6.556-5.332 11.888-11.888 11.888-2.004 0-3.972-.511-5.713-1.482l-6.289 1.694zm6.75-3.357l.356.211c1.291.766 2.775 1.171 4.296 1.171 4.843 0 8.783-3.94 8.783-8.783 0-2.346-.913-4.553-2.571-6.211-1.658-1.658-3.865-2.571-6.211-2.571-4.843 0-8.783 3.94-8.783 8.783 0 1.666.467 3.29 1.35 4.71l.233.375-1.03 3.75 3.844-1.036z"/></svg>
+        </a>
+    </div>
 
-    <div class="fixed bottom-8 left-8 z-50">
-        <button id="aiToggleBtn" class="glass bg-black p-4 rounded-full shadow-lg block hover:scale-110 transition-all neon-border border-green-500 text-green-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-        </button>
-    </div>
+    <div class="fixed bottom-8 left-8 z-50">
+        <button id="aiToggleBtn" class="glass bg-black p-4 rounded-full shadow-lg block hover:scale-110 transition-all neon-border border-green-500 text-green-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+        </button>
+    </div>
 
-    <div id="aiChatBox" class="fixed bottom-24 left-8 w-80 sm:w-96 glass bg-black/90 rounded-2xl flex-col z-50 overflow-hidden transform transition-all duration-300 opacity-0 scale-95 pointer-events-none border-green-500/50">
-        <div class="bg-gradient-to-r from-green-900/50 to-black p-4 border-b border-green-500/30 flex justify-between items-center">
-            <h3 class="text-green-400 font-bold flex items-center gap-2 text-sm tracking-wider text-glow">
-                <svg class="h-4 w-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg>
-                GEMINI AI
-            </h3>
-            <button id="closeAiBtn" class="text-green-500 hover:text-white transition text-xl">&times;</button>
-        </div>
-        <div id="chatMessages" class="p-4 h-64 overflow-y-auto flex flex-col gap-3 text-sm scroll-smooth">
-            <div class="bg-green-900/30 border border-green-500/30 p-3 rounded-lg rounded-tl-none text-green-100 self-start max-w-[85%]">
-                Halo! Aku asisten AI pribadi Rofi. Mau tanya apa soal M. Rofi Ardiansyah?
-            </div>
-        </div>
-        <div class="p-3 bg-black/80 border-t border-green-500/30 flex gap-2">
-            <input type="text" id="aiInput" class="w-full bg-black rounded-lg px-3 py-2 text-green-400 outline-none border border-green-900 focus:border-green-500 text-sm transition placeholder-green-800" placeholder="Ketik pesanmu di sini...">
-            <button id="sendAiBtn" class="bg-green-600 text-black p-2 px-4 rounded-lg hover:bg-green-500 transition font-bold neon-border">Kirim</button>
-        </div>
-    </div>
+    <div id="aiChatBox" class="fixed bottom-24 left-8 w-80 sm:w-96 glass bg-black/90 rounded-2xl flex-col z-50 overflow-hidden transform transition-all duration-300 opacity-0 scale-95 pointer-events-none border-green-500/50">
+        <div class="bg-gradient-to-r from-green-900/50 to-black p-4 border-b border-green-500/30 flex justify-between items-center">
+            <h3 class="text-green-400 font-bold flex items-center gap-2 text-sm tracking-wider text-glow">
+                <svg class="h-4 w-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg>
+                GEMINI AI
+            </h3>
+            <button id="closeAiBtn" class="text-green-500 hover:text-white transition">&times;</button>
+        </div>
+        <div id="chatMessages" class="p-4 h-64 overflow-y-auto flex flex-col gap-3 text-sm">
+            <div class="bg-green-900/30 border border-green-500/30 p-3 rounded-lg rounded-tl-none text-green-100 self-start max-w-[85%]">
+                Halo aku asisten pribadi rofi, apa yang kamu kepo soal dia?
+            </div>
+        </div>
+        <div class="p-3 bg-black/80 border-t border-green-500/30 flex gap-2">
+            <input type="text" id="aiInput" class="w-full bg-black rounded-lg px-3 py-2 text-green-400 outline-none border border-green-900 focus:border-green-500 text-sm transition placeholder-green-800" placeholder="Tanya Gemini...">
+            <button id="sendAiBtn" class="bg-green-600 text-black p-2 px-4 rounded-lg hover:bg-green-500 transition font-bold neon-border">Go</button>
+        </div>
+    </div>
 
-    <section class="min-h-screen flex flex-col items-center justify-center relative px-6 z-10">
-        <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-green-600/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-green-600/10 rounded-full blur-[120px]"></div>
+    <section class="min-h-screen flex flex-col items-center justify-center relative px-6 z-10">
+        <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-green-600/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-green-600/10 rounded-full blur-[120px]"></div>
 
-        <div data-aos="zoom-in" class="relative group mt-10">
-            <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-600 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
-            <img src="118224.jpg" alt="M. Rofi Ardiansyah" class="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-green-500 shadow-2xl filter grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700">
-        </div>
+        <div data-aos="zoom-in" class="relative group mt-10">
+            <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-600 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+            <img src="118224.jpg" alt="M. Rofi Ardiansyah" class="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-green-500 shadow-2xl filter grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700">
+        </div>
 
-        <div class="text-center mt-8 z-10">
-            <h1 data-aos="fade-up" class="text-4xl md:text-6xl font-extrabold tracking-tighter text-white">
-                M. ROFI <span class="text-green-500 text-glow">ARDIANSYAH</span>
-            </h1>
-            <p data-aos="fade-up" data-aos-delay="200" class="text-green-400 mt-2 font-medium tracking-widest uppercase text-sm">
-                Civil Engineering Student & Web Developer
-            </p>
-        </div>
-    </section>
+        <div class="text-center mt-8 z-10">
+            <h1 data-aos="fade-up" class="text-4xl md:text-6xl font-extrabold tracking-tighter text-white">
+                M. ROFI <span class="text-green-500 text-glow">ARDIANSYAH</span>
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="200" class="text-green-400 mt-2 font-medium tracking-widest uppercase text-sm">
+                Civil Engineering Student
+            </p>
+        </div>
+    </section>
 
-    <section class="py-20 px-6 max-w-4xl mx-auto relative z-10">
-        <h2 data-aos="fade-right" class="text-2xl font-bold mb-10 flex items-center gap-4 text-white">
-            <span class="w-12 h-[2px] bg-green-500 neon-border"></span> BIODATA
-        </h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="glass p-8 rounded-2xl group hover:border-green-500 transition">
-                <h3 class="text-green-400 font-bold mb-4 text-lg">Pendidikan</h3>
-                <ul class="space-y-3 text-sm text-gray-300">
-                    <li class="flex justify-between border-b border-green-900/30 pb-2"><span class="text-gray-500">Univ:</span> <span>S1 Teknik Sipil UNMER</span></li>
-                    <li class="flex justify-between border-b border-green-900/30 pb-2"><span class="text-gray-500">Alumni:</span> <span>SMKN 1 Wonoasri (DPIB)</span></li>
-                </ul>
-            </div>
-            <div class="glass p-8 rounded-2xl group hover:border-green-500 transition">
-                <h3 class="text-green-400 font-bold mb-4 text-lg">Visi & Pengalaman</h3>
-                <p class="text-sm text-gray-400 leading-relaxed mb-3">Membangun masa depan inovatif melalui teknik sipil dan teknologi.</p>
-                <p class="text-sm text-gray-400 leading-relaxed">Berpengalaman 6 bulan PKL di CV AA Contractor turun langsung ke lapangan.</p>
-            </div>
-        </div>
-    </section>
+    <section class="py-20 px-6 max-w-4xl mx-auto relative z-10">
+        <h2 data-aos="fade-right" class="text-2xl font-bold mb-10 flex items-center gap-4 text-white">
+            <span class="w-12 h-[2px] bg-green-500 neon-border"></span> BIODATA
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass p-8 rounded-2xl group hover:border-green-500 transition">
+                <h3 class="text-green-400 font-bold mb-4 text-lg">Pendidikan</h3>
+                <ul class="space-y-3 text-sm text-gray-300">
+                    <li class="flex justify-between border-b border-green-900/30 pb-2"><span class="text-gray-500">Univ:</span> <span>Teknik Sipil UNMER</span></li>
+                    <li class="flex justify-between border-b border-green-900/30 pb-2"><span class="text-gray-500">Alumni:</span> <span>SMKN 1 Wonoasri</span></li>
+                </ul>
+            </div>
+            <div class="glass p-8 rounded-2xl group hover:border-green-500 transition">
+                <h3 class="text-green-400 font-bold mb-4 text-lg">Visi</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">Membangun masa depan inovatif melalui teknik sipil dan teknologi.</p>
+            </div>
+        </div>
+    </section>
 
-    <section id="gallery" class="py-20 px-6 max-w-6xl mx-auto relative z-10">
-        <h2 data-aos="fade-right" class="text-2xl font-bold mb-12 flex items-center gap-4 text-white">
-             <span class="w-12 h-[2px] bg-green-500 neon-border"></span> PERSONAL BRANDING
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a href="detail-professional.html" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 group">
-                <img src="1797.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
-                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Professional</h4>
-            </a>
-            <a href="detail-balance.html" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 group">
-                <img src="1729.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
-                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Balance</h4>
-            </a>
-            <a href="detail-spirit.html" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 group">
-                <img src="1794.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
-                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Spirit</h4>
-            </a>
-        </div>
-    </section>
+    <section id="gallery" class="py-20 px-6 max-w-6xl mx-auto relative z-10">
+        <h2 data-aos="fade-right" class="text-2xl font-bold mb-12 flex items-center gap-4 text-white">
+             <span class="w-12 h-[2px] bg-green-500 neon-border"></span> PERSONAL BRANDING
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="detail-professional.html" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 group">
+                <img src="1797.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
+                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Professional</h4>
+            </a>
+            <a href="detail-balance.html" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 group">
+                <img src="1729.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
+                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Balance</h4>
+            </a>
+            <a href="detail-spirit.html" class="block photo-card glass rounded-3xl overflow-hidden p-3 border-green-900/30 group">
+                <img src="1794.jpg" class="w-full h-80 object-cover rounded-2xl mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
+                <h4 class="mt-3 font-bold text-lg px-2 text-green-400">Spirit</h4>
+            </a>
+        </div>
+    </section>
 
-    <footer class="py-10 text-center text-green-800 text-[10px] tracking-widest bg-black">
-        &copy; 2026 M. ROFI ARDIANSYAH.
-    </footer>
+    <footer class="py-10 text-center text-green-800 text-[10px] tracking-widest bg-black">
+        &copy; 2026 M. ROFI ARDIANSYAH.
+    </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // PASSWORD LOGIC
-        function hideOverlay() {
-            const isAuth = localStorage.getItem('isAuthorized');
-            if (isAuth === 'true') {
-                const overlay = document.getElementById('passwordOverlay');
-                if(overlay) overlay.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // FUNGSI UNTUK SEMBUNYIKAN OVERLAY SECARA PERMANEN JIKA LOGIN
+        function hideOverlay() {
+            const isAuth = localStorage.getItem('isAuthorized');
+            if (isAuth === 'true') {
+                const overlay = document.getElementById('passwordOverlay');
+                if(overlay) overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
 
-        window.addEventListener('pageshow', hideOverlay);
-        window.addEventListener('DOMContentLoaded', hideOverlay);
+        // Jalankan saat halaman di-load dan saat kembali dari history (tombol back)
+        window.addEventListener('pageshow', hideOverlay);
+        window.addEventListener('DOMContentLoaded', hideOverlay);
 
-        function checkPassword() {
-            const input = document.getElementById('passInput');
-            const errorText = document.getElementById('errorText');
-            
-            if (input.value === "rofibaik") {
-                localStorage.setItem('isAuthorized', 'true');
-                document.getElementById('authSection').classList.add('hidden');
-                document.getElementById('successSection').classList.remove('hidden');
-                document.getElementById('successSection').classList.add('flex');
-            } else {
-                errorText.classList.remove('opacity-0');
-                input.classList.add('shake-animation', 'border-red-500', 'text-red-500');
-                setTimeout(() => {
-                    input.classList.remove('shake-animation', 'border-red-500', 'text-red-500');
-                }, 300);
-            }
-        }
+        function checkPassword() {
+            const input = document.getElementById('passInput');
+            const errorText = document.getElementById('errorText');
+            
+            if (input.value === "rofibaik") {
+                localStorage.setItem('isAuthorized', 'true');
+                document.getElementById('authSection').classList.add('hidden');
+                document.getElementById('successSection').classList.remove('hidden');
+                document.getElementById('successSection').classList.add('flex');
+            } else {
+                errorText.classList.remove('opacity-0');
+                input.classList.add('shake-animation', 'border-red-500', 'text-red-500');
+                setTimeout(() => {
+                    input.classList.remove('shake-animation', 'border-red-500', 'text-red-500');
+                }, 300);
+            }
+        }
 
-        function enterWebsite() {
-            const overlay = document.getElementById('passwordOverlay');
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-                overlay.style.display = 'none';
-                document.body.style.overflow = 'auto'; 
-            }, 700);
-        }
+        function enterWebsite() {
+            const overlay = document.getElementById('passwordOverlay');
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; 
+            }, 700);
+        }
 
-        document.getElementById('passInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') checkPassword(); });
+        document.getElementById('passInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') checkPassword(); });
 
-        // AOS INIT
-        AOS.init({ duration: 1000, once: false });
+        // AOS INIT
+        AOS.init({ duration: 1000, once: false });
 
-        // MUSIC LOGIC
-        const musicBtn = document.getElementById('musicBtn');
-        const audio = document.getElementById('myAudio');
-        let isPlaying = false;
-        musicBtn.addEventListener('click', () => {
-            if (isPlaying) { audio.pause(); musicBtn.classList.remove('music-playing'); }
-            else { audio.play(); musicBtn.classList.add('music-playing'); }
-            isPlaying = !isPlaying;
-        });
+        // MUSIC LOGIC
+        const musicBtn = document.getElementById('musicBtn');
+        const audio = document.getElementById('myAudio');
+        let isPlaying = false;
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) { audio.pause(); musicBtn.classList.remove('music-playing'); }
+            else { audio.play(); musicBtn.classList.add('music-playing'); }
+            isPlaying = !isPlaying;
+        });
 
-        // AI WIDGET UI LOGIC
-        const aiToggleBtn = document.getElementById('aiToggleBtn');
-        const aiChatBox = document.getElementById('aiChatBox');
-        const closeAiBtn = document.getElementById('closeAiBtn');
-
-        aiToggleBtn.addEventListener('click', () => {
-            aiChatBox.classList.toggle('opacity-0');
-            aiChatBox.classList.toggle('scale-95');
-            aiChatBox.classList.toggle('pointer-events-none');
-        });
-
-        closeAiBtn.addEventListener('click', () => {
-            aiChatBox.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-        });
-
-        // GEMINI API LOGIC
-     
-             
-
-            try {
-                // System Instruction: Memberitahu Gemini siapa dia, supaya bisa menjelaskan soal kamu.
-                const systemPrompt = "Kamu adalah asisten virtual di website portfolio Muhamad Rofi Ardiansyah. Rofi adalah mahasiswa S1 Teknik Sipil di UNMER Madiun, lulusan SMKN 1 Wonoasri jurusan Desain Pemodelan dan Informasi Bangunan. Dia punya pengalaman magang 6 bulan di CV AA Contractor. Dia juga jago coding (HTML, CSS, JS, Tailwind) dan lagi bikin aplikasi manajemen keuangan 'yuk bisa yuk'. Dia pernah ada rasa dengan Naasha Nurfrida sejak SMP. Jawab pertanyaan pengunjung tentang Rofi dengan ramah, singkat, gaul, dan relevan.";
-
-               
-                        
-                        }]
-                    })
-                });
-
-                const data = await response.json();
-                
-                if (data.candidates && data.candidates[0].content) {
-                    const aiResponse = data.candidates[0].content.parts[0].text;
-                    updateMessage(loadingId, aiResponse);
-                } else {
-                    updateMessage(loadingId, 'Maaf, terjadi kesalahan respon dari server.');
-                }
-                
-            } catch (error) {
-                updateMessage(loadingId, 'Gagal terhubung ke AI. Coba lagi nanti ya.');
-                console.error(error);
-            }
-        }
-
-        function appendMessage(text, sender) {
-            const msgDiv = document.createElement('div');
-            const id = 'msg-' + Date.now();
-            msgDiv.id = id;
-            
-            if (sender === 'user') {
-                msgDiv.className = 'bg-black border border-green-500 p-3 rounded-lg rounded-tr-none text-green-400 self-end max-w-[85%] break-words';
-            } else {
-                msgDiv.className = 'bg-green-900/30 border border-green-500/30 p-3 rounded-lg rounded-tl-none text-green-100 self-start max-w-[85%] break-words';
-            }
-            
-            msgDiv.textContent = text;
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            return id;
-        }
-
-        function updateMessage(id, text) {
-            const msgDiv = document.getElementById(id);
-            if (msgDiv) {
-                msgDiv.textContent = text;
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-        }
-
-        });
-    </script>
+        // AI WIDGET
+        const aiToggleBtn = document.getElementById('aiToggleBtn');
+        const aiChatBox = document.getElementById('aiChatBox');
+        aiToggleBtn.addEventListener('click', () => {
+            aiChatBox.classList.toggle('opacity-0');
+            aiChatBox.classList.toggle('scale-95');
+            aiChatBox.classList.toggle('pointer-events-none');
+        });
+    </script>
 </body>
 </html>
+oiya tambahin biar gemini ai nya bisa berjalan selayaknya gemini ai, inget langsung jadiin script nya biar tinggal copas
